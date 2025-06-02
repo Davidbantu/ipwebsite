@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Palace</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      z-index: 1000;
+      font-family: 'Righteous', cursive;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      filter: blur(2px);
+      border-radius: 50%;
+    }
+
+    nav a {
+      margin: 0 25px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #d62828;
+    }
+
+    .main-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+      padding: 0 80px;
+      padding-top: 70px;
+    }
+
+    .text-content {
+      max-width: 50%;
+      background-color: #000000;
+      padding: 30px;
+      border-radius: 10px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* spacing between elements */
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .restaurant-name {
+      font-family: 'Righteous', cursive;
+      font-size: 60px;
+      margin: 0;
+      line-height: 1;
+      color: white;
+    }
+
+    .description {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      margin-top: 20px;
+      line-height: 1.6;
+      color: white;
+    }
+
+    /* Buttons container */
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      color: white;
+    }
+
+    button#order-now {
+      background-color: #970b0b;
+    }
+
+    button#order-now:hover {
+      background-color: #b31919;
+      box-shadow: 0 6px 10px rgba(217, 31, 31, 0.5);
+    }
+
+    button#table-reservations {
+      background-color: #494848;
+    }
+
+    button#table-reservations:hover {
+      background-color: #6a6a6a;
+      box-shadow: 0 6px 10px rgba(128, 128, 128, 0.5);
+    }
+
+    .image-content {
+      position: relative;
+      width: 45%;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .image-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(15px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="https://via.placeholder.com/50" alt="Logo" />
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Our Menu</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <div class="main-section">
+    <div class="text-content">
+      <div class="subtitle">Authentic Indian Food</div>
+      <h1 class="restaurant-name">INDIA PALACE</h1>
+      <p class="description">
+        At our restaurant, we bring you the bold and vibrant flavors of India with a modern touch.
+        Enjoy a menu full of authentic recipes, made with fresh ingredients and cooked to perfection.
+        Whether you're looking for a casual meal or a special evening out, we offer the perfect setting to relax and indulge.<br><br>
+        We’re proudly situated in the center of Yerevan, close to Republic Square.
+      </p>
+
+      <div class="buttons">
+        <button id="order-now">Order Now</button>
+        <button id="table-reservations">Table Reservations</button>
+      </div>
+    </div>
+
+    <div class="image-content">
+      <img src="https://cdn.pixabay.com/photo/2024/08/01/19/25/ai-generated-8938045_1280.jpg" alt="Indian Food Image"/>
+    </div>
+  </div>
+
+</body>
+</html>
