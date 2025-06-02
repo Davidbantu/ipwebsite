@@ -56,21 +56,21 @@
     .main-section {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       height: 100vh;
-      padding: 0 80px;
+      padding-left: 80px;
       padding-top: 70px;
     }
 
     .text-content {
-      max-width: 50%;
+      max-width: 600px;
       background-color: #000000;
       padding: 30px;
       border-radius: 10px;
       color: white;
       display: flex;
       flex-direction: column;
-      gap: 20px; /* spacing between elements */
+      gap: 20px;
+      flex-shrink: 0;
     }
 
     .subtitle {
@@ -95,7 +95,6 @@
       color: white;
     }
 
-    /* Buttons container */
     .buttons {
       margin-top: 20px;
       display: flex;
@@ -134,10 +133,10 @@
 
     .image-content {
       position: relative;
-      width: 45%;
-      height: 500px;
+      flex-grow: 1;
+      height: 100vh;
       overflow: hidden;
-      border-radius: 15px;
+      border-radius: 0;
     }
 
     .image-content img {
@@ -145,19 +144,10 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
 
-    .image-content::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 40%;
-      height: 100%;
-      background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
-      pointer-events: none;
-      z-index: 1;
-      filter: blur(15px);
+      /* mask for smooth left fade to black */
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
     }
   </style>
 </head>
