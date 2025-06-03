@@ -426,6 +426,46 @@
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
       mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
     }
+    
+    
+    /* Responsive for Chef's Specials */
+    @media (max-width:1100px) {
+      #chefs-specials .chefSwiper {max-width:390px;}
+    }
+    @media (max-width:900px) {
+      #chefs-specials>div {flex-direction:column;}
+      #chefs-specials .chefSwiper {max-width:270px;}
+    }
+    @media (max-width:600px) {
+      #chefs-specials .chefSwiper {max-width:90vw;}
+      #chefs-specials img {max-width:160px !important;}
+      #chefs-specials {padding:20px 5px 30px 5px;}
+    }
+    /* Swiper arrow styling */
+    .chefSwiper .swiper-button-next,
+    .chefSwiper .swiper-button-prev {
+      color: #ffd700;
+      background:rgba(0,0,0,0.18);
+      border-radius:50%;
+      width:36px;
+      height:36px;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:24px;
+      box-shadow:0 2px 12px 0 rgba(151,11,11,0.11);
+    }
+    .chefSwiper .swiper-button-next:after,
+    .chefSwiper .swiper-button-prev:after {
+      font-size:21px;
+      font-weight:bold;
+    }
+    /* Hide arrows on mobile for space */
+    @media (max-width:700px) {
+      .chefSwiper .swiper-button-next,
+      .chefSwiper .swiper-button-prev {
+        display:none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -679,7 +719,92 @@
     <a href="#" style="display:inline-block;padding:12px 28px;border-radius:8px;background:#970b0b;color:#fff;text-decoration:none;font-weight:500;box-shadow:0 4px 12px rgba(151,11,11,0.2);transition:background 0.2s;">See Full Menu &rarr;</a>
   </div>
 
+  
 </section>
+  <!-- Chef’s Specials Section: Large Square Image (Touching Left Edge), Both Sides Fade, Swiper Arrows -->
+<section id="chefs-specials" style="max-width:1200px;margin:70px auto 0 auto;padding:40px 20px 60px 20px;">
+  <h2 style="font-family:'Righteous',cursive;font-size:32px;letter-spacing:1px;display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:18px;">
+    <span style="font-size:38px;">👨‍🍳</span> Chef’s Specials
+  </h2>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:42px;justify-content:center;">
+    <!-- Left: Swiper Images with both sides fade and small curve, large and flush left -->
+    <div style="flex:1 1 550px;min-width:340px;max-width:600px;display:flex;align-items:center;justify-content:flex-start;">
+      <div style="width:100%;max-width:520px;min-width:340px;">
+        <!-- Swiper -->
+        <div class="swiper chefSwiper" style="border-radius:14px 0 0 14px;overflow:hidden;">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="https://cdn.pixabay.com/photo/2024/08/01/19/25/ai-generated-8938045_1280.jpg"
+                alt="Chef's Special 1"
+                style="width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block;border-radius:14px 0 0 14px;
+                  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+                  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+                  background:linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+                  box-shadow:0 4px 18px 0 rgba(151,11,11,0.18);"
+              >
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://cdn.pixabay.com/photo/2024/08/01/19/25/ai-generated-8938045_1280.jpg"
+                alt="Chef's Special 2"
+                style="width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block;border-radius:14px 0 0 14px;
+                  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+                  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+                  background:linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+                  box-shadow:0 4px 18px 0 rgba(151,11,11,0.18);"
+              >
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://cdn.pixabay.com/photo/2024/08/01/19/25/ai-generated-8938045_1280.jpg"
+                alt="Chef's Special 3"
+                style="width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block;border-radius:14px 0 0 14px;
+                  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+                  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+                  background:linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+                  box-shadow:0 4px 18px 0 rgba(151,11,11,0.18);"
+              >
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev" style="color:#ffd700;left:8px;"></div>
+          <div class="swiper-button-next" style="color:#ffd700;right:8px;"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: Text -->
+    <div style="flex:1 1 400px;min-width:260px;max-width:520px;">
+      <h3 style="font-size:22px;margin-bottom:10px;font-weight:400;color:#ffd700;font-family:'Righteous',cursive;">
+        Signature Creations by Our Head Chef
+      </h3>
+      <p style="color:#ccc;line-height:1.7;font-size:17px;font-family:'Roboto',sans-serif;">
+        Indulge in weekly specials curated by our master chef using seasonal ingredients and age-old family recipes.
+      </p>
+      <div style="margin:30px 0 18px 0;">
+        <div style="font-size:17px;color:#fff;font-weight:500;margin-bottom:10px;">
+          <span style="color:#ffd700;font-size:23px;vertical-align:middle;margin-right:9px;">🍽️</span>This week’s highlights:
+        </div>
+        <ul style="list-style:none;padding:0;margin:0 0 12px 0;">
+          <li style="margin-bottom:10px;display:flex;align-items:center;gap:9px;font-family:'Roboto',sans-serif;">
+            <span style="color:#970b0b;font-size:1.27em;">★</span> Malai Kofta Royal
+          </li>
+          <li style="margin-bottom:10px;display:flex;align-items:center;gap:9px;font-family:'Roboto',sans-serif;">
+            <span style="color:#970b0b;font-size:1.27em;">★</span> Tandoori Salmon
+          </li>
+          <li style="margin-bottom:10px;display:flex;align-items:center;gap:9px;font-family:'Roboto',sans-serif;">
+            <span style="color:#970b0b;font-size:1.27em;">★</span> Mango Lassi with Saffron
+          </li>
+        </ul>
+        <div style="color:#b2b2b2;font-size:15px;letter-spacing:0.1px;margin-top:14px;font-family:'Roboto',sans-serif;">
+          Check back often — our chef loves to surprise you.
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -805,6 +930,24 @@
       renderMenuItems('starters');
     }
   });
+    
+    
+    var chefSwiper = new Swiper('.chefSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    pagination: {
+      el: '.chefSwiper .swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.chefSwiper .swiper-button-next',
+      prevEl: '.chefSwiper .swiper-button-prev',
+    },
+    effect: 'slide',
+    speed: 500,
+  });
+
   </script>
 </body>
 </html>
