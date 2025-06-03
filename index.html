@@ -342,6 +342,80 @@
         height: 220px;
       }
     }
+      
+    .menu-cat-btn.active,
+    .menu-cat-btn:focus {
+      background:rgba(151,11,11,0.17) !important;
+      outline:2px solid #970b0b;
+      color:#ffd700;
+      box-shadow: 0 6px 24px 0 rgba(151,11,11,0.38), 0 2px 10px rgba(255,215,0,0.07);
+      position:relative;
+      z-index:1;
+    }
+    .menu-cat-btn {
+      position:relative;
+    }
+    .menu-cat-btn:not(.active)::after {
+      content:'';
+      display:none;
+    }
+    .menu-item-card {
+      width:232px;
+      background:rgba(255,255,255,0.025);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 0 12px rgba(255,215,0,0.07);
+      text-align:center;
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      transition:transform 0.17s;
+    }
+    .menu-item-card:hover {
+      transform:translateY(-8px) scale(1.03);
+      box-shadow:0 8px 24px rgba(151,11,11,0.15);
+    }
+    .menu-item-img {
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-top-left-radius:16px;
+      border-top-right-radius:16px;
+    }
+    .menu-item-info {
+      padding:20px 12px 18px 12px;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .menu-item-title {
+      font-family:'Righteous',cursive;
+      font-size:1.14rem;
+      color:#ffd700;
+      margin-bottom:2px;
+    }
+    .menu-item-desc {
+      font-size:0.99rem;
+      color:#ccc;
+      line-height:1.5;
+      flex:1;
+    }
+    @media (max-width:900px) {
+      #menu-items-container {gap:18px;}
+      .menu-item-card {width:46vw;min-width:170px;max-width:232px;}
+    }
+    @media (max-width:600px) {
+      #menu-categories {gap:14px;}
+      .menu-cat-btn {padding:16px 10px;font-size:15px;min-width:120px;}
+      #menu-items-container {gap:12px;}
+      .menu-item-card {width:94vw;max-width:320px;}
+    }
+    @keyframes fadeIn {
+      from { opacity:0; transform:translateY(30px);}
+      to   { opacity:1; transform:none;}
+    }
+  </style>
 
     .image-content img {
       width: 100%;
@@ -567,6 +641,45 @@
       <div class="swiper-pagination"></div>
     </div>
   </div>
+ <!-- Menu Section with Interactive Category Buttons and Dynamic Item Display -->
+<section id="menu" style="max-width:1200px;margin:60px auto 0 auto;padding:40px 20px 60px 20px;">
+  <h2 style="font-family:'Righteous',cursive;font-size:32px;letter-spacing:1px;display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:18px;">
+    <span style="font-size:38px;">📜</span> Menu
+  </h2>
+  <div style="text-align:center;max-width:700px;margin:0 auto 28px auto;">
+    <h3 style="font-size:22px;margin-bottom:10px;font-weight:400;color:#ffd700;">Explore Our Diverse Indian Menu</h3>
+    <p style="color:#ccc;line-height:1.7;font-size:17px;">
+      From classic butter chicken and biryani to vegetarian delights like paneer tikka and chana masala — our menu brings the best of North and South Indian flavors to your plate.
+    </p>
+    <a href="#" style="color:#970b0b;text-decoration:underline;font-weight:500;font-size:16px;">View our full menu &rarr;</a>
+  </div>
+  <div id="menu-categories" style="display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:32px;">
+    <button class="menu-cat-btn" data-category="starters" style="background:rgba(255,255,255,0.04);border-radius:13px;padding:28px 38px;min-width:220px;box-shadow:0 2px 10px rgba(255,215,0,0.07);font-size:18px;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:#fff;transition:background 0.2s;">
+      <span style="font-size:22px;">🥗</span> Starters &amp; Chaats
+    </button>
+    <button class="menu-cat-btn" data-category="tandoori" style="background:rgba(255,255,255,0.04);border-radius:13px;padding:28px 38px;min-width:220px;box-shadow:0 2px 10px rgba(255,215,0,0.07);font-size:18px;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:#fff;transition:background 0.2s;">
+      <span style="font-size:22px;">🔥</span> Tandoori Specials
+    </button>
+    <button class="menu-cat-btn" data-category="curries" style="background:rgba(255,255,255,0.04);border-radius:13px;padding:28px 38px;min-width:220px;box-shadow:0 2px 10px rgba(255,215,0,0.07);font-size:18px;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:#fff;transition:background 0.2s;">
+      <span style="font-size:22px;">🍛</span> Curries (Veg &amp; Non-Veg)
+    </button>
+    <button class="menu-cat-btn" data-category="breads" style="background:rgba(255,255,255,0.04);border-radius:13px;padding:28px 38px;min-width:220px;box-shadow:0 2px 10px rgba(255,215,0,0.07);font-size:18px;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:#fff;transition:background 0.2s;">
+      <span style="font-size:22px;">🥖</span> Breads &amp; Rice
+    </button>
+    <button class="menu-cat-btn" data-category="desserts" style="background:rgba(255,255,255,0.04);border-radius:13px;padding:28px 38px;min-width:220px;box-shadow:0 2px 10px rgba(255,215,0,0.07);font-size:18px;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:#fff;transition:background 0.2s;">
+      <span style="font-size:22px;">🍨</span> Desserts &amp; Beverages
+    </button>
+  </div>
+
+  <!-- Dynamic Menu Items -->
+  <div id="menu-items-container" style="display:none;flex-wrap:wrap;justify-content:center;gap:32px;margin-top:48px;animation:fadeIn 0.5s;">
+    <!-- JS will insert menu items here -->
+  </div>
+  <div id="see-full-menu-row" style="display:none;text-align:right;margin-top:36px;">
+    <a href="#" style="display:inline-block;padding:12px 28px;border-radius:8px;background:#970b0b;color:#fff;text-decoration:none;font-weight:500;box-shadow:0 4px 12px rgba(151,11,11,0.2);transition:background 0.2s;">See Full Menu &rarr;</a>
+  </div>
+
+</section>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -588,6 +701,110 @@
         480: { slidesPerView: 1 }
       }
     });
+     // Sample menu data for each category - 8 items per category
+  const menuData = {
+    starters: [
+      { name: "Pani Puri", desc: "Crispy puris filled with spicy tangy water and potato filling." },
+      { name: "Samosa", desc: "Golden fried pastry stuffed with spicy potatoes and peas." },
+      { name: "Papdi Chaat", desc: "Crunchy wafers topped with potatoes, yogurt, and chutneys." },
+      { name: "Aloo Tikki", desc: "Spiced potato patties served with chutneys." },
+      { name: "Dahi Puri", desc: "Mini puris stuffed with potatoes, yogurt, tangy chutneys." },
+      { name: "Onion Bhaji", desc: "Crispy fried onion fritters." },
+      { name: "Paneer Pakora", desc: "Cottage cheese slices battered and deep fried." },
+      { name: "Bhel Puri", desc: "Puffed rice, veggies, tangy sauces and crunchy sev." }
+    ],
+    tandoori: [
+      { name: "Tandoori Chicken", desc: "Chicken marinated in yogurt & spices, roasted in tandoor." },
+      { name: "Paneer Tikka", desc: "Chunks of paneer, onion & capsicum grilled with spices." },
+      { name: "Seekh Kebab", desc: "Minced meat skewers with aromatic spices." },
+      { name: "Tandoori Prawns", desc: "Succulent prawns marinated & cooked in tandoor." },
+      { name: "Chicken Malai Tikka", desc: "Tender chicken cubes in creamy marinade, grilled to perfection." },
+      { name: "Fish Tikka", desc: "Spiced fish cubes grilled in the tandoor." },
+      { name: "Mushroom Tikka", desc: "Juicy mushrooms marinated & roasted with spices." },
+      { name: "Tandoori Broccoli", desc: "Broccoli florets spiced and tandoor-grilled." }
+    ],
+    curries: [
+      { name: "Butter Chicken", desc: "Tender chicken pieces in creamy tomato gravy." },
+      { name: "Chana Masala", desc: "Chickpeas simmered in onion-tomato masala." },
+      { name: "Paneer Butter Masala", desc: "Paneer cubes in rich buttery tomato sauce." },
+      { name: "Lamb Rogan Josh", desc: "Slow-cooked lamb curry from Kashmir." },
+      { name: "Fish Curry", desc: "Fish cooked in tangy coconut gravy." },
+      { name: "Chicken Tikka Masala", desc: "Grilled chicken in spiced tomato cream sauce." },
+      { name: "Vegetable Korma", desc: "Mixed vegetables in creamy cashew gravy." },
+      { name: "Egg Curry", desc: "Boiled eggs in spicy onion-tomato sauce." }
+    ],
+    breads: [
+      { name: "Naan", desc: "Soft and fluffy tandoori-baked flatbread." },
+      { name: "Garlic Naan", desc: "Naan topped with fragrant garlic and herbs." },
+      { name: "Jeera Rice", desc: "Basmati rice tempered with cumin seeds." },
+      { name: "Paratha", desc: "Layered whole wheat flatbread, pan-fried." },
+      { name: "Biryani", desc: "Fragrant rice cooked with spices and your choice of meat or veg." },
+      { name: "Roti", desc: "Whole wheat flatbread, freshly made." },
+      { name: "Peas Pulao", desc: "Basmati rice cooked with green peas & mild spices." },
+      { name: "Laccha Paratha", desc: "Multi-layered crispy tandoori bread." }
+    ],
+    desserts: [
+      { name: "Gulab Jamun", desc: "Soft milk dumplings soaked in rose-flavored syrup." },
+      { name: "Rasmalai", desc: "Cottage cheese dumplings in creamy saffron milk." },
+      { name: "Mango Lassi", desc: "Sweet mango yogurt drink, served chilled." },
+      { name: "Kulfi", desc: "Traditional Indian ice cream with nuts and cardamom." },
+      { name: "Jalebi", desc: "Crispy, syrup-soaked pretzel-shaped dessert." },
+      { name: "Kheer", desc: "Rice pudding flavored with cardamom and nuts." },
+      { name: "Gajar Halwa", desc: "Carrot pudding slow-cooked with milk and ghee." },
+      { name: "Masala Chai", desc: "Classic Indian spiced tea with milk & sugar." }
+    ]
+  };
+
+  const photoUrl = 'https://cdn.pixabay.com/photo/2024/08/01/19/25/ai-generated-8938045_1280.jpg';
+
+  // Elements
+  const catBtns = document.querySelectorAll('.menu-cat-btn');
+  const itemsContainer = document.getElementById('menu-items-container');
+  const seeFullMenuRow = document.getElementById('see-full-menu-row');
+  let activeBtn = null;
+
+  function renderMenuItems(category) {
+    const items = menuData[category];
+    itemsContainer.innerHTML = items.map(item => `
+      <div class="menu-item-card">
+        <img class="menu-item-img" src="${photoUrl}" loading="lazy" alt="${item.name}">
+        <div class="menu-item-info">
+          <div class="menu-item-title">${item.name}</div>
+          <div class="menu-item-desc">${item.desc}</div>
+        </div>
+      </div>
+    `).join('');
+    itemsContainer.style.display = 'flex';
+    seeFullMenuRow.style.display = 'block';
+  }
+
+  // Category button click events
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Remove active from others
+      if (activeBtn) activeBtn.classList.remove('active');
+      this.classList.add('active');
+      activeBtn = this;
+      // Show items
+      renderMenuItems(this.getAttribute('data-category'));
+      // Scroll to menu section on mobile
+      if(window.innerWidth < 700){
+        setTimeout(() => {
+          document.getElementById('menu-items-container').scrollIntoView({behavior:'smooth'});
+        }, 100);
+      }
+    });
+  });
+
+  // Auto-select "starters" on load
+  window.addEventListener('DOMContentLoaded', function() {
+    const startersBtn = document.querySelector('.menu-cat-btn[data-category="starters"]');
+    if(startersBtn) {
+      startersBtn.classList.add('active');
+      activeBtn = startersBtn;
+      renderMenuItems('starters');
+    }
+  });
   </script>
 </body>
 </html>
