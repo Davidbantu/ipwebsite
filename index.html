@@ -8,6 +8,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap" rel="stylesheet">
 
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
   <style>
     body {
       margin: 0;
@@ -165,22 +168,18 @@
       margin: 0 auto;
     }
 
-    .scroll-container {
+    /* Swiper custom styles */
+    .swiper {
+      padding: 10px 40px 30px 40px;
+    }
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+    .swiper-slide {
+      height: auto;
       display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      padding: 10px 40px;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-    }
-
-    .scroll-container::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .scroll-container::-webkit-scrollbar-thumb {
-      background: #444;
-      border-radius: 6px;
+      align-items: stretch;
+      /* for food card styling */
     }
 
     .food-card {
@@ -192,6 +191,9 @@
       box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
       scroll-snap-align: start;
       position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .popular-label {
@@ -270,48 +272,74 @@
     }
 
     .order-btn {
-  background: #970b0b;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 12px;
-  color: white;
-  cursor: pointer;
-  text-transform: uppercase;
-  box-shadow: 0 4px 10px rgba(151, 11, 11, 0.6);
-  transition: all 0.3s ease;
-}
+      background: #970b0b;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 12px;
+      color: white;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(151, 11, 11, 0.6);
+      transition: all 0.3s ease;
+    }
 
-.order-btn:hover {
-  background: #b21212;
-  box-shadow: 0 6px 18px rgba(151, 11, 11, 0.8);
-}
+    .order-btn:hover {
+      background: #b21212;
+      box-shadow: 0 6px 18px rgba(151, 11, 11, 0.8);
+    }
 
-    .arrow {
-      position: absolute;
+    /* Swiper navigation arrows */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #fff;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
       top: 50%;
       transform: translateY(-50%);
-      background: none;
-      border: none;
-      font-size: 36px;
-      color: white;
-      padding: 6px;
-      cursor: pointer;
-      z-index: 100;
+    }
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 28px;
+      font-weight: bold;
     }
 
-    .arrow.left {
-      left: 10px;
+    /* Swiper pagination */
+    .swiper-pagination-bullet {
+      background: #fff;
+      opacity: 0.7;
+    }
+    .swiper-pagination-bullet-active {
+      background: #970b0b;
+      opacity: 1;
     }
 
-    .arrow.right {
-      right: 10px;
+    @media (max-width: 1024px) {
+      .main-section {
+        flex-direction: column;
+        padding-left: 0;
+        height: auto;
+      }
+      .image-content {
+        height: 300px;
+      }
     }
 
     @media (max-width: 768px) {
-      .arrow {
-        display: none;
+      .swiper {
+        padding: 10px 10px 30px 10px;
+      }
+      .main-section {
+        flex-direction: column;
+        padding-left: 0;
+        height: auto;
+        padding-top: 90px;
+      }
+      .image-content {
+        height: 220px;
       }
     }
 
@@ -320,7 +348,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-
       /* mask for smooth left fade to black */
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
       mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
@@ -365,161 +392,202 @@
     </div>
   </div>
 
-   <h2>🔥 Popular Items</h2>
+  <h2>🔥 Popular Items</h2>
 
+  <!-- Swiper Carousel -->
   <div class="carousel-wrapper">
-    <button class="arrow left" onclick="scrollLeft()">❮</button>
-    <div class="scroll-container" id="carousel">
-      <!-- Repeating same card 10 times -->
-      <!-- Start of card -->
-      <!-- Duplicate this block -->
-      <!-- Just copy-paste this 10 times -->
-      <!-- You can replace images/texts later -->
-      <!-- Card 1 -->
-      <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Repeat this .swiper-slide for each card -->
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
         </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-card">
+            <div class="popular-label">Popular Item</div>
+            <div class="image-container">
+              <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
+              <div class="fade-overlay"></div>
+            </div>
+            <div class="info">
+              <div class="item-name">Strawberry Pancakes</div>
+              <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
+              <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
+              <div class="price">₹120.00</div>
+              <button class="order-btn">Order Now</button>
+            </div>
+          </div>
         </div>
       </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-       <div class="food-card">
-        <div class="popular-label">Popular Item</div>
-        <div class="image-container">
-          <img class="food-image" src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" alt="Strawberry Pancakes" />
-          <div class="fade-overlay"></div>
-        </div>
-        <div class="info">
-          <div class="item-name">Strawberry Pancakes</div>
-          <div class="description">Fluffy pancakes topped with strawberries and syrup.</div>
-          <div class="rating">⭐ ⭐ ⭐ ⭐ ✰ <span style="color:#ccc;">4.7</span></div>
-          <div class="price">₹120.00</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-      <!-- Repeat the above block 9 more times for total 10 cards -->
-      <!-- Paste the block again here 9 times -->
+      <!-- Swiper navigation arrows -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <!-- Swiper pagination -->
+      <div class="swiper-pagination"></div>
     </div>
-    <button class="arrow right" onclick="scrollRight()">❯</button>
   </div>
 
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const scrollContainer = document.getElementById('carousel');
-
-  
-
-    function scrollRight() {
-      scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
-    }
-
-      function scrollLeft() {
-      scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
-    }
+    var swiper = new Swiper('.mySwiper', {
+      slidesPerView: 4,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        1024: { slidesPerView: 4 },
+        768: { slidesPerView: 2 },
+        480: { slidesPerView: 1 }
+      }
+    });
   </script>
 </body>
 </html>
