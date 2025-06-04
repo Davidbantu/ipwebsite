@@ -884,17 +884,29 @@ Thank you !
 </section>
 
 
-  <!-- Reservations Section: Black background, left photo with fade, right dynamic content, yellow button with black text and hover, extra space before section -->
+ <!-- Reservations Section: Matches About Us size (width:1100px, height:420px), title centered above, yellow button with black text and hover, extra space before section, revised subtitle and description order as requested -->
 
 <!-- Extra space before the section -->
-<div style="height:70px;"></div>
+<div style="height:90px;"></div>
 
-<section id="reservations" style="width:1100px;min-width:1100px;max-width:1100px;margin:0 auto 100px auto;position:relative;">
-  <div style="display:flex;flex-direction:row;align-items:stretch;height:370px;">
+<section id="reservations" style="width:1100px;min-width:1100px;max-width:1100px;margin:0 auto 0 auto;position:relative;">
+  <!-- Centered Title Over Whole Section, with extra space below -->
+  <h2 style="
+    font-family:'Righteous',cursive;
+    font-size:38px;
+    color:#fff;
+    letter-spacing:1px;
+    text-align:center;
+    margin:0 auto 32px auto;
+    width:100%;
+    ">
+    📅 Reservations
+  </h2>
+  <div style="display:flex;flex-direction:row;align-items:stretch;height:420px;">
     <!-- Left: Photo -->
     <div style="
-      flex:0 0 420px;
-      max-width:420px;
+      flex:0 0 410px;
+      max-width:410px;
       min-width:0;
       position:relative;
       display:flex;
@@ -908,14 +920,13 @@ Thank you !
         src="https://cdn.pixabay.com/photo/2024/08/01/19/25/ai-generated-8938045_1280.jpg"
         alt="Reservations Table"
         style="
-          width:100%;
-          height:100%;
+          width:410px;
+          height:420px;
           object-fit:cover;
           display:block;
           border-radius:20px 0 0 20px;
-          /* Fade right side into black background */
-          -webkit-mask-image: linear-gradient(to left, transparent 0%, black 18%, black 100%);
-          mask-image: linear-gradient(to left, transparent 0%, black 18%, black 100%);
+          -webkit-mask-image: linear-gradient(to left, transparent 0%, black 17%, black 100%);
+          mask-image: linear-gradient(to left, transparent 0%, black 17%, black 100%);
           background:#000;
         "
       >
@@ -935,12 +946,13 @@ Thank you !
       box-sizing:border-box;
       ">
       <div>
-        <div style="font-family:'Righteous',cursive;font-size:30px;color:#fff;margin-bottom:10px;letter-spacing:1px;">📅 Reservations</div>
-        <div style="font-size:21px;font-family:'Roboto',sans-serif;font-weight:600;margin-bottom:26px;color:#ffd700;">
+        <!-- Subtitle first -->
+        <div style="font-size:21px;font-family:'Roboto',sans-serif;font-weight:600;margin-bottom:18px;color:#ffd700;">
           Reserve Your Table Today
         </div>
+        <!-- Description just below subtitle -->
         <div style="font-size:15.5px;color:#ccc;font-family:'Roboto',sans-serif;line-height:1.7;margin-bottom:24px;">
-          Planning a dinner out or a celebration? <b>Book a table</b> with us online or call us directly.<br>
+          Planning a dinner out or a celebration? <b>Book a table</b> with us online or call us directly.
         </div>
         <ul style="list-style:none;padding:0 0 0 0;margin:0 0 26px 0;">
           <li style="font-size:16.5px;margin-bottom:10px;display:flex;align-items:center;gap:9px;">
@@ -959,13 +971,16 @@ Thank you !
         <!-- Yellow Reservation Button with black text and hover style -->
         <a href="#"
            class="yellow-btn"
-           style="display:inline-block;padding:12px 34px;background:#ffd700;color:#111;border-radius:22px;font-size:15.5px;font-family:'Roboto',sans-serif;font-weight:600;text-decoration:none;box-shadow:0 2px 10px 0 rgba(255,215,0,0.13);transition:background 0.18s, color 0.18s, box-shadow 0.18s;">
+           style="display:inline-block;padding:12px 34px;background:#ffd700;color:#111;border-radius:22px;font-size:15.5px;font-family:'Roboto',sans-serif;font-weight:600;text-decoration:none;box-shadow:0 2px 10px 0 rgba(255,215,0,0.13);transition:background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;">
           Reserve Online
         </a>
       </div>
     </div>
   </div>
+  <!-- Extra space after section -->
+  <div style="height:48px;"></div>
 </section>
+
 
 
   <!-- Swiper JS -->
