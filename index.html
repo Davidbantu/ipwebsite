@@ -70,9 +70,7 @@
     }
 
    
-
-   
-  .bdm-hero-section {
+.bdm-hero-section {
   width: 100vw;
   min-height: 600px;
   position: relative;
@@ -180,6 +178,43 @@
   border: 2px solid #313131;
   box-shadow: 0 6px 32px 0 #49484899, 0 2px 12px 0 #000c;
 }
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .bdm-hero-content { min-height:320px !important; }
+  .bdm-hero-title { font-size: 2rem !important;}
+  .bdm-hero-text { max-width:97vw !important;}
+  .bdm-hero-desc { max-width:98vw !important;}
+}
+
+@media (max-width: 600px) {
+  .bdm-hero-section { padding:0 !important; }
+  .bdm-hero-title {
+    font-size: 2.2rem !important; /* Big and prominent on mobile */
+    line-height: 1.13 !important;
+    margin-bottom: 13px !important;
+  }
+  .bdm-hero-subtitle {
+    font-size: 10px !important;
+    margin-bottom: 7px !important;
+  }
+  .bdm-hero-desc {
+    font-size: 12px !important;
+    max-width: 99vw !important;
+    margin-bottom: 17px !important;
+    line-height: 1.45 !important;
+  }
+  .bdm-btn {
+    font-size: 13px !important;
+    padding: 8px 15px !important;
+    border-radius: 15px !important;
+  }
+  .bdm-hero-text {
+    max-width: 99vw !important;
+  }
+}
+   
+
  
     body {
       background-color: #000;
@@ -516,24 +551,7 @@
 }
 
 
-    @media (max-width: 1200px) {
-  .bdm-hero-content { max-width:99vw !important;}
-  .bdm-hero-title { font-size:2rem !important; }
-  .bdm-hero-desc { font-size:0.98rem !important;}
-}
-@media (max-width: 900px) {
-  .bdm-hero-content { min-height:320px !important; }
-  .bdm-hero-title { font-size:1.5rem !important;}
-  .bdm-hero-text { max-width:97vw !important;}
-  .bdm-hero-desc { max-width:98vw !important;}
-}
-@media (max-width: 600px) {
-  .bdm-hero-section { padding:0 !important; }
-  .bdm-hero-title { font-size:1.1rem !important;}
-  .bdm-btn { font-size:13px !important; padding:8px 15px !important;}
-  .bdm-hero-desc { max-width:99vw !important;}
-}
-
+  
   </style>
 </head>
 <body>
@@ -549,10 +567,9 @@
       <a href="#">About Us</a>
       <a href="#">Contact Us</a>
     </nav>
-  </header>
-<!-- MAIN HERO SECTION - All class names prefixed with 'bdm-', button classes changed, styles updated accordingly -->
-<section id="bdm-hero" class="bdm-hero-section">
+  </header><!-- MAIN HERO SECTION - Responsive: Desktop great, Mobile: "INDIA PALACE" still big, description & subtitle much smaller, all bdm- classes -->
 
+<section id="bdm-hero" class="bdm-hero-section">
   <!-- Background Image (right side) -->
   <div class="bdm-hero-bg-img">
     <!-- Black fade overlay (left side) -->
