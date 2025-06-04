@@ -11,32 +11,26 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
   <style>
- body, .container {
-  width: 100%;
-  min-width: unset;
-  max-width: 100%;
+   body {
+  width: 1280px;
+  min-width: 1280px;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow-x: auto;
 }
-
-.main-section {
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  padding-left: 5vw;
-  padding-top: 70px;
-}
-
-  .text-content, .image-content {
-    max-width: 100%;
-    width: 100%;
-    padding: 10px;
-  }
-  .restaurant-name { font-size: 8vw; }
-  .description { font-size: 4vw; }
-  .image-content img { height: 45vw; min-height: 140px; }
+.container {
+  width: 1280px;
+  min-width: 1280px;
+  max-width: 1280px;
 }
     
     
- 
+    {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: black;
+      color: white;
+    }
 
     header {
       position: fixed;
@@ -60,7 +54,6 @@
       width: 50px;
       height: 50px;
       object-fit: cover;
-      filter: blur(2px);
       border-radius: 50%;
     }
 
@@ -75,8 +68,25 @@
       color: #d62828;
     }
 
-   
-   
+    .main-section {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      padding-left: 80px;
+      padding-top: 70px;
+    }
+
+    .text-content {
+      max-width: 600px;
+      background-color: #000000;
+      padding: 30px;
+      border-radius: 10px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-shrink: 0;
+    }
 
     .subtitle {
       font-size: 18px;
@@ -84,7 +94,13 @@
       color: white;
     }
 
-   
+    .restaurant-name {
+      font-family: 'Righteous', cursive;
+      font-size: 60px;
+      margin: 0;
+      line-height: 1;
+      color: white;
+    }
 
     .description {
       font-family: 'Roboto', sans-serif;
@@ -142,6 +158,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+
 
     body {
       background-color: #000;
