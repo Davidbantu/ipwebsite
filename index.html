@@ -11,12 +11,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
   <style>
-  body {
+ body {
   width: 1280px;
   min-width: 1280px;
   max-width: 1280px;
   margin: 0 auto;
   overflow-x: auto;
+  background-color: #000;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  padding: 40px 20px;
 }
 .container {
   width: 1280px;
@@ -99,19 +103,10 @@
   max-width: 1620px;
   margin: 0 auto;
   padding: 0 5vw;
-  /* ensure child uses only half width */
 }
 .bdm-hero-text-half {
   max-width: 50vw;
   width: 50vw;
-}
-.bdm-hero-subtitle {
-  font-size: 13px;
-  letter-spacing: 1.6px;
-  color: #ffd700;
-  font-family: 'Righteous', cursive;
-  margin-bottom: 13px;
-  font-weight: 500;
 }
 .bdm-hero-title-big {
   font-size: 5vw !important;
@@ -133,6 +128,26 @@
   line-height: 1.5;
   margin-bottom: 18px;
   text-align: left;
+}
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .bdm-hero-content { min-height:320px !important; }
+  .bdm-hero-text-half { max-width:97vw !important; width:97vw !important;}
+  .bdm-hero-title-big { font-size: 2.3rem !important;}
+  .bdm-hero-desc-small { max-width:98vw !important; font-size: 0.89rem !important;}
+}
+@media (max-width: 600px) {
+  .bdm-hero-text-half { max-width: 99vw !important; width: 99vw !important;}
+  .bdm-hero-title-big {
+    font-size: 2.5rem !important;
+    margin-bottom: 13px !important;
+  }
+  .bdm-hero-desc-small {
+    font-size: 12px !important;
+    max-width: 99vw !important;
+    margin-bottom: 17px !important;
+    line-height: 1.45 !important;
+  }
 }
 .bdm-hero-btns {
   display: flex;
